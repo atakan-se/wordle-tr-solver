@@ -35,6 +35,8 @@ function greeenLetterInput(event)
         this.blur();
     else
         this.nextElementSibling.focus();
+
+    event.preventDefault();
 }
 
 function greenLetterClick(event)
@@ -106,10 +108,10 @@ function solveWordle(event)
 let green_letters = document.getElementsByClassName('input2');
 Array.from(green_letters).forEach((green) =>
 {
-    green.addEventListener('keypress', greeenLetterInput);
+    green.addEventListener('keydown', greeenLetterInput);
     green.addEventListener('click', greenLetterClick);
 });
 
-document.getElementById("yellow").addEventListener('keypress', yellowGrayInput);
-document.getElementById("gray").addEventListener('keypress', yellowGrayInput);
+document.getElementById("yellow").addEventListener('keydown', yellowGrayInput);
+document.getElementById("gray").addEventListener('keydown', yellowGrayInput);
 document.getElementById("send").addEventListener('click', solveWordle);
